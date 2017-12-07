@@ -1,1 +1,3 @@
 # coin-exchanger
+# sedat
+# strsg
