@@ -14,11 +14,9 @@ public class BittrexMarketService {
 
     public BittrexMarketService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
-        ResponseWrapper<Market> markets = getMarketsRestCall();
     }
 
     public ResponseWrapper<Market> getMarketsRestCall() {
-        ResponseWrapper<Market> marketResponseWrapper = new ResponseWrapper<>();
-        return this.restTemplate.getForObject(URI + "getmarkets", marketResponseWrapper.getClass());
+        return this.restTemplate.<ResponseWrapper<Market>>getForObject(URI + "getmarkets", (Class<ResponseWrapper<Market>>) (Class<?>) ResponseWrapper.class);
     }
 }
