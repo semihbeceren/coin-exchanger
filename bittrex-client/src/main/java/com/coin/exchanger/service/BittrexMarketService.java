@@ -33,5 +33,9 @@ public class BittrexMarketService {
         return  this.restTemplate.<ResponseWrapper<Tick>>getForObject(builder.toUriString(),(Class<ResponseWrapper<Tick>>) (Class<?>)ResponseWrapper.class);
     }
 
+    public ResponseListWrapper<MarketSummary> getMarketSummariesRestCall(){
+        return this.restTemplate.<ResponseListWrapper<MarketSummary>>getForObject(URI+"getmarketsummaries",(Class<ResponseListWrapper<MarketSummary>>) (Class<?>)ResponseListWrapper.class);
+    }
+
 
 }
