@@ -1,4 +1,4 @@
-package com.coin.exchanger.authservice.Configuration;
+package com.coin.exchanger.authservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,11 +8,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 
 /**
- * ---
- * Created 27.12.2016
- * ---
- *
- * @author Semih BECEREN
+ * @author Semih Beceren
  */
 @Configuration
 @EnableResourceServer
