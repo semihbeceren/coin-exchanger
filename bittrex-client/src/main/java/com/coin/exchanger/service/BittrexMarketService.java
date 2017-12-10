@@ -1,7 +1,7 @@
 package com.coin.exchanger.service;
 
-import com.coin.exchanger.remote.response.ResponseGetMarket;
-import com.coin.exchanger.remote.result.Market;
+import com.coin.exchanger.remote.response.Market;
+import com.coin.exchanger.remote.response.ResponseWrapper;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,10 +14,11 @@ public class BittrexMarketService {
 
     public BittrexMarketService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
-        ResponseGetMarket markets = getMarketsRestCall();
+        ResponseWrapper<Market> markets = getMarketsRestCall();
     }
 
-    public ResponseGetMarket getMarketsRestCall() {
-        return this.restTemplate.getForObject(URI+"getmarkets", ResponseGetMarket.class);
+    public ResponseWrapper<Market> getMarketsRestCall() {
+        ResponseWrapper<Market> marketResponseWrapper = new ResponseWrapper<>();
+        return this.restTemplate.getForObject(URI + "getmarkets", marketResponseWrapper.getClass());
     }
 }

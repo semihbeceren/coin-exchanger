@@ -1,7 +1,5 @@
 package com.coin.exchanger.remote.response;
 
-import java.util.List;
-
 public class BaseResponse{
 
     private Boolean success;

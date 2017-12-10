@@ -1,10 +1,6 @@
-package com.coin.exchanger.remote.result;
+package com.coin.exchanger.remote.response;
 
-import com.coin.exchanger.remote.response.BaseResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ser.Serializers;
-
-import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Market {
