@@ -1,19 +1,14 @@
 package com.coin.exchanger.remote.response;
 
-import java.util.List;
-
-/**
- * Created By Semih Beceren at 08-Dec-17
- */
 public class ResponseWrapper<T> extends BaseResponse {
 
-    private List<T> result;
+    private T result;
 
-    public List<T> getResult() {
+    public T getResult() {
         return result;
     }
 
-    public void setResult(List<T> result) {
+    public void setResult(T result) {
         this.result = result;
     }
 }

@@ -1,11 +1,11 @@
 package com.coin.exchanger.service;
 
-import com.coin.exchanger.remote.response.Market;
-import com.coin.exchanger.remote.response.ResponseWrapper;
+import com.coin.exchanger.remote.response.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class BittrexMarketService {
@@ -18,7 +18,20 @@ public class BittrexMarketService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    public ResponseWrapper<Market> getMarketsRestCall() {
-        return this.restTemplate.<ResponseWrapper<Market>>getForObject(URI + "getmarkets", (Class<ResponseWrapper<Market>>) (Class<?>) ResponseWrapper.class);
+    public ResponseListWrapper<Market> getMarketsRestCall() {
+        return this.restTemplate.<ResponseListWrapper<Market>>getForObject(URI + "getmarkets", (Class<ResponseListWrapper<Market>>) (Class<?>) ResponseListWrapper.class);
     }
+
+    public ResponseListWrapper<Currency> getCurrenciesRestCall(){
+        return this.restTemplate.<ResponseListWrapper<Currency>>getForObject(URI+"getcurrencies",(Class<ResponseListWrapper<Currency>>) (Class<?>)ResponseListWrapper.class);
+    }
+
+    public ResponseWrapper<Tick> getTickerRestCall(String market){
+        UriComponentsBuilder builder = UriComponentsBuilder
+                .fromUriString(URI+"getticker")
+                .queryParam("market", market);
+        return  this.restTemplate.<ResponseWrapper<Tick>>getForObject(builder.toUriString(),(Class<ResponseWrapper<Tick>>) (Class<?>)ResponseWrapper.class);
+    }
+
+
 }
