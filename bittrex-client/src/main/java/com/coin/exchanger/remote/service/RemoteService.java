@@ -1,11 +1,7 @@
 package com.coin.exchanger.remote.service;
 
 import com.coin.exchanger.order.OrderType;
-import com.coin.exchanger.remote.response.Currency;
-import com.coin.exchanger.remote.response.Market;
-import com.coin.exchanger.remote.response.MarketSummary;
-import com.coin.exchanger.remote.response.Ticker;
-import com.coin.exchanger.remote.response.base.OrderWrapper;
+import com.coin.exchanger.remote.response.*;
 import com.coin.exchanger.remote.response.base.ResponseListWrapper;
 import com.coin.exchanger.remote.response.base.ResponseWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,18 +50,18 @@ public class RemoteService {
 
     }
 
-    public ResponseWrapper<OrderWrapper> getOrderBookRestCall(String market, OrderType orderType){
+    public ResponseWrapper<OrderBook> getOrderBookRestCall(String market, OrderType orderType){
         UriComponentsBuilder builder = UriComponentsBuilder
                 .fromUriString(URI+"getorderbook")
                 .queryParam("market", market)
                 .queryParam("type", orderType.getKey());
-        return this.restTemplate.<ResponseWrapper<OrderWrapper>>getForObject(builder.toUriString(),(Class<ResponseWrapper<OrderWrapper>>)(Class<?>)ResponseWrapper.class);
+        return this.restTemplate.<ResponseWrapper<OrderBook>>getForObject(builder.toUriString(),(Class<ResponseWrapper<OrderBook>>)(Class<?>)ResponseWrapper.class);
     }
 
-    public void getMarketHistoryRestCall(String market){
+    public ResponseListWrapper<MarketHistory> getMarketHistoryRestCall(String market){
         UriComponentsBuilder builder = UriComponentsBuilder
                 .fromUriString(URI+"getmarkethistory")
                 .queryParam("market", market);
-        //
+        return this.restTemplate.<ResponseListWrapper<MarketHistory>>getForObject(builder.toUriString(),(Class<ResponseListWrapper<MarketHistory>>)(Class<?>)ResponseListWrapper.class);
     }
 }

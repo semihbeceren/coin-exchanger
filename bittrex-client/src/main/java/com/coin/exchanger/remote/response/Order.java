@@ -2,9 +2,7 @@ package com.coin.exchanger.remote.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * Created by U0T8673 on 11.12.2017.
- */
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Order {
     private Double quantity;
