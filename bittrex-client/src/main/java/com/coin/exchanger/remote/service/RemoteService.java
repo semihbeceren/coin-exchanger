@@ -1,6 +1,10 @@
 package com.coin.exchanger.remote.service;
 
-import com.coin.exchanger.remote.response.*;
+import com.coin.exchanger.order.OrderType;
+import com.coin.exchanger.remote.response.Currency;
+import com.coin.exchanger.remote.response.Market;
+import com.coin.exchanger.remote.response.MarketSummary;
+import com.coin.exchanger.remote.response.Ticker;
 import com.coin.exchanger.remote.response.base.OrderWrapper;
 import com.coin.exchanger.remote.response.base.ResponseListWrapper;
 import com.coin.exchanger.remote.response.base.ResponseWrapper;
@@ -31,11 +35,11 @@ public class RemoteService {
         return this.restTemplate.<ResponseListWrapper<Currency>>getForObject(URI+"getcurrencies",(Class<ResponseListWrapper<Currency>>) (Class<?>)ResponseListWrapper.class);
     }
 
-    public ResponseWrapper<Tick> getTickerRestCall(String market){
+    public ResponseWrapper<Ticker> getTickerRestCall(String market) {
         UriComponentsBuilder builder = UriComponentsBuilder
                 .fromUriString(URI+"getticker")
                 .queryParam("market", market);
-        return  this.restTemplate.<ResponseWrapper<Tick>>getForObject(builder.toUriString(),(Class<ResponseWrapper<Tick>>) (Class<?>)ResponseWrapper.class);
+        return this.restTemplate.<ResponseWrapper<Ticker>>getForObject(builder.toUriString(), (Class<ResponseWrapper<Ticker>>) (Class<?>) ResponseWrapper.class);
     }
 
     public ResponseListWrapper<MarketSummary> getMarketSummariesRestCall(){

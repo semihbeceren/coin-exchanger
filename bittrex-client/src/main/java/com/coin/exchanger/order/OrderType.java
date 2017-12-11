@@ -1,12 +1,12 @@
-package com.coin.exchanger.remote.response;
+package com.coin.exchanger.order;
 
 /**
  * @author Semih Beceren
  */
 public enum OrderType {
-    Buy("buy"),
-    Sell("sell"),
-    Both("both");
+    BUY("buy"),
+    SELL("sell"),
+    BOTH("both");
 
     private final String key;
 

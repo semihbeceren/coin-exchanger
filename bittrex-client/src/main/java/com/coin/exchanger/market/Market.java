@@ -100,4 +100,19 @@ public class Market {
     public void setMarketSummaries(List<MarketSummary> marketSummaries) {
         this.marketSummaries = marketSummaries;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Market market = (Market) o;
+
+        return id != null ? id.equals(market.id) : market.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

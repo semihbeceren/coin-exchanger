@@ -1,11 +1,9 @@
 package com.coin.exchanger.market.summary;
 
 import com.coin.exchanger.market.Market;
+import com.coin.exchanger.remote.response.Ticker;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -22,11 +20,10 @@ public class MarketSummary {
     private Double high;
     private Double low;
     private Double volume;
-    private Double last;
     private Double baseVolume;
+    @OneToOne(mappedBy = "marketSummary", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, optional = false)
+    private Ticker ticker;
     private Date timeStamp;
-    private Double bid;
-    private Double ask;
     private Integer openBuyOrders;
     private Integer openSellOrders;
     private Double prevDay;
@@ -35,16 +32,14 @@ public class MarketSummary {
     public MarketSummary() {
     }
 
-    public MarketSummary(Market market, Double high, Double low, Double volume, Double last, Double baseVolume, Date timeStamp, Double bid, Double ask, Integer openBuyOrders, Integer openSellOrders, Double prevDay, Date created) {
+    public MarketSummary(Market market, Double high, Double low, Double volume, Double baseVolume, Ticker ticker, Date timeStamp, Integer openBuyOrders, Integer openSellOrders, Double prevDay, Date created) {
         this.market = market;
         this.high = high;
         this.low = low;
         this.volume = volume;
-        this.last = last;
         this.baseVolume = baseVolume;
+        this.ticker = ticker;
         this.timeStamp = timeStamp;
-        this.bid = bid;
-        this.ask = ask;
         this.openBuyOrders = openBuyOrders;
         this.openSellOrders = openSellOrders;
         this.prevDay = prevDay;
@@ -91,14 +86,6 @@ public class MarketSummary {
         this.volume = volume;
     }
 
-    public Double getLast() {
-        return last;
-    }
-
-    public void setLast(Double last) {
-        this.last = last;
-    }
-
     public Double getBaseVolume() {
         return baseVolume;
     }
@@ -113,22 +100,6 @@ public class MarketSummary {
 
     public void setTimeStamp(Date timeStamp) {
         this.timeStamp = timeStamp;
-    }
-
-    public Double getBid() {
-        return bid;
-    }
-
-    public void setBid(Double bid) {
-        this.bid = bid;
-    }
-
-    public Double getAsk() {
-        return ask;
-    }
-
-    public void setAsk(Double ask) {
-        this.ask = ask;
     }
 
     public Integer getOpenBuyOrders() {
@@ -163,4 +134,11 @@ public class MarketSummary {
         this.created = created;
     }
 
+    public Ticker getTicker() {
+        return ticker;
+    }
+
+    public void setTicker(Ticker ticker) {
+        this.ticker = ticker;
+    }
 }

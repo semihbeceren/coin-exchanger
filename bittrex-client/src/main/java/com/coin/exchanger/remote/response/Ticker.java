@@ -3,7 +3,7 @@ package com.coin.exchanger.remote.response;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Tick {
+public class Ticker {
 
     private Double bid;
     private Double ask;
