@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
-public class BittrexMarketService {
+public class RemoteService {
 
     private final RestTemplate restTemplate;
     private static final String URI = "https://bittrex.com/api/v1.1/public/";
@@ -31,7 +31,7 @@ public class BittrexMarketService {
     }
 
     @Autowired
-    public BittrexMarketService(RestTemplateBuilder restTemplateBuilder) {
+    public RemoteService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
     }
 
