@@ -18,7 +18,7 @@ public class OrderBook {
     @Enumerated(EnumType.ORDINAL)
     private OrderType orderType;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
     private Order order;
 
     public OrderBook() {

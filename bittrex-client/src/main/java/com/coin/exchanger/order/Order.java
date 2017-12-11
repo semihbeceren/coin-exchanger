@@ -2,16 +2,14 @@ package com.coin.exchanger.order;
 
 import com.coin.exchanger.order.book.OrderBook;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * @author Semih Beceren
  */
 @Entity
+@Table(name = "order_table")
 public class Order {
 
     @Id
