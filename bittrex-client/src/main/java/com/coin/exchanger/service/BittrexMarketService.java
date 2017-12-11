@@ -37,7 +37,7 @@ public class BittrexMarketService {
         return this.restTemplate.<ResponseListWrapper<MarketSummary>>getForObject(URI+"getmarketsummaries",(Class<ResponseListWrapper<MarketSummary>>) (Class<?>)ResponseListWrapper.class);
     }
     
-    public ResponseWrapper<MarketSummary> getMarketSummary(String market){
+    public ResponseWrapper<MarketSummary> getMarketSummaryRestCall(String market){
         UriComponentsBuilder builder = UriComponentsBuilder
                 .fromUriString(URI+"getmarketsummary")
                 .queryParam("market", market);
