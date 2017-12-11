@@ -1,4 +1,4 @@
-package com.coin.exchanger.service;
+package com.coin.exchanger.remote.service;
 
 import com.coin.exchanger.remote.response.*;
 import org.springframework.beans.factory.annotation.Autowired;
