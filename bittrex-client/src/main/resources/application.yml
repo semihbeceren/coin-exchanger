@@ -13,7 +13,7 @@ server:
   
 logging.level.org.springframework.web: DEBUG
   
-  ---
+---
 
 spring:
   profiles: test
