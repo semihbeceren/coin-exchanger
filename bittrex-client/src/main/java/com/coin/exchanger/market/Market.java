@@ -1,5 +1,6 @@
 package com.coin.exchanger.market;
 
+import com.coin.exchanger.market.history.MarketHistory;
 import com.coin.exchanger.remote.response.Currency;
 import com.coin.exchanger.remote.response.MarketSummary;
 
@@ -21,6 +22,8 @@ public class Market {
     private String marketName;
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "market", fetch = FetchType.LAZY)
     private List<MarketSummary> marketSummaries;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "market", fetch = FetchType.LAZY)
+    private List<MarketHistory> marketHistories;
     private Double minTradeSize;
     private Boolean isActive;
     private Date createdAt;
@@ -114,5 +117,13 @@ public class Market {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
+    }
+
+    public List<MarketHistory> getMarketHistories() {
+        return marketHistories;
+    }
+
+    public void setMarketHistories(List<MarketHistory> marketHistories) {
+        this.marketHistories = marketHistories;
     }
 }
