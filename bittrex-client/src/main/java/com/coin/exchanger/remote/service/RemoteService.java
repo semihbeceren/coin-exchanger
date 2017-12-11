@@ -1,6 +1,9 @@
 package com.coin.exchanger.remote.service;
 
 import com.coin.exchanger.remote.response.*;
+import com.coin.exchanger.remote.response.base.OrderWrapper;
+import com.coin.exchanger.remote.response.base.ResponseListWrapper;
+import com.coin.exchanger.remote.response.base.ResponseWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
@@ -13,22 +16,7 @@ public class RemoteService {
     private final RestTemplate restTemplate;
     private static final String URI = "https://bittrex.com/api/v1.1/public/";
 
-    public enum OrderType{
-        Buy("buy"),
-        Sell("sell"),
-        Both("both");
 
-        private final String key;
-
-        OrderType(String key) {
-            this.key = key;
-        }
-
-
-        public String getKey() {
-            return this.key;
-        }
-    }
 
     @Autowired
     public RemoteService(RestTemplateBuilder restTemplateBuilder) {

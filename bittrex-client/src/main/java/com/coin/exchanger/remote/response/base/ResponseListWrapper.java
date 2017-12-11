@@ -1,4 +1,4 @@
-package com.coin.exchanger.remote.response;
+package com.coin.exchanger.remote.response.base;
 
 import java.util.List;
 

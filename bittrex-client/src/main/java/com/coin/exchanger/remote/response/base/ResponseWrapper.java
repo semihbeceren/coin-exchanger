@@ -1,4 +1,4 @@
-package com.coin.exchanger.remote.response;
+package com.coin.exchanger.remote.response.base;
 
 public class ResponseWrapper<T> extends BaseResponse {
 
