@@ -1,4 +1,4 @@
-package com.coin.exchanger.summary;
+package com.coin.exchanger.market.summary;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
