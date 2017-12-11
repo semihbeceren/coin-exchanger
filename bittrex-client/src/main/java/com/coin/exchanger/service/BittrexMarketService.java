@@ -13,6 +13,23 @@ public class BittrexMarketService {
     private final RestTemplate restTemplate;
     private static final String URI = "https://bittrex.com/api/v1.1/public/";
 
+    public enum OrderType{
+        Buy("buy"),
+        Sell("sell"),
+        Both("both");
+
+        private final String key;
+
+        OrderType(String key) {
+            this.key = key;
+        }
+
+
+        public String getKey() {
+            return this.key;
+        }
+    }
+
     @Autowired
     public BittrexMarketService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
@@ -45,5 +62,18 @@ public class BittrexMarketService {
 
     }
 
+    public ResponseWrapper<OrderWrapper> getOrderBookRestCall(String market, OrderType orderType){
+        UriComponentsBuilder builder = UriComponentsBuilder
+                .fromUriString(URI+"getorderbook")
+                .queryParam("market", market)
+                .queryParam("type", orderType.getKey());
+        return this.restTemplate.<ResponseWrapper<OrderWrapper>>getForObject(builder.toUriString(),(Class<ResponseWrapper<OrderWrapper>>)(Class<?>)ResponseWrapper.class);
+    }
 
+    public void getMarketHistoryRestCall(String market){
+        UriComponentsBuilder builder = UriComponentsBuilder
+                .fromUriString(URI+"getmarkethistory")
+                .queryParam("market", market);
+        //
+    }
 }
