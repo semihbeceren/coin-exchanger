@@ -1,7 +1,7 @@
 package com.coin.exchanger.market.history;
 
+import com.coin.exchanger.market.Market;
 import com.coin.exchanger.order.OrderType;
-import com.coin.exchanger.remote.response.Market;
 
 import javax.persistence.*;
 import java.util.Date;
