@@ -1,8 +1,8 @@
 package com.coin.exchanger.market;
 
+import com.coin.exchanger.currency.Currency;
 import com.coin.exchanger.market.history.MarketHistory;
-import com.coin.exchanger.remote.response.Currency;
-import com.coin.exchanger.remote.response.MarketSummary;
+import com.coin.exchanger.market.summary.MarketSummary;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,7 +17,9 @@ public class Market {
     @Id
     @GeneratedValue
     private Long id;
+    @ManyToOne
     private Currency marketCurrency;
+    @ManyToOne
     private Currency baseCurrency;
     private String marketName;
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "market", fetch = FetchType.LAZY)

@@ -1,8 +1,9 @@
 package com.coin.exchanger.currency;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.coin.exchanger.market.Market;
+
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Semih Beceren
@@ -17,6 +18,12 @@ public class Currency {
     private Double txFee;
     private Boolean isActive;
     private String coinType;
+
+    @OneToMany(mappedBy = "baseCurrency", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Market> base;
+
+    @OneToMany(mappedBy = "marketCurrency", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Market> market;
 
     public Currency() {
     }

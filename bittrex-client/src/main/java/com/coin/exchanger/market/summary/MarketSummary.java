@@ -1,7 +1,7 @@
 package com.coin.exchanger.market.summary;
 
 import com.coin.exchanger.market.Market;
-import com.coin.exchanger.remote.response.Ticker;
+import com.coin.exchanger.market.summary.ticker.Ticker;
 
 import javax.persistence.*;
 import java.util.Date;
