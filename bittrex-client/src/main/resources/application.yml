@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: development
+---
+
+spring:
+  profiles: development
+  application:
+    name: bittrex-client
+server:
+  port: 9191
+  contextPath: /uaa
+  
+  logging.level.org.springframework.web: DEBUG
+  
+  ---
+
+spring:
+  profiles: test
+  datasource:
+      url: jdbc:mysql://localhost:3306/db_bittrex?useSSL=false&requireSSL=false
+      username: root
+      password: dbpass
+      initialize: true
+  application:
+    name: bittrex-client
+server:
+  port: 9191
