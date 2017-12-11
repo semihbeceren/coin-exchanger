@@ -8,7 +8,7 @@ spring:
   application:
     name: bittrex-client
 server:
-  port: 9191
+  port: 7575
   contextPath: /uaa
   
   logging.level.org.springframework.web: DEBUG
@@ -25,4 +25,4 @@ spring:
   application:
     name: bittrex-client
 server:
-  port: 9191
+  port: 7575
