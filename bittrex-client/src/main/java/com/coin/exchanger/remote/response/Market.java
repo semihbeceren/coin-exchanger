@@ -5,76 +5,76 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Market {
 
-    private String MarketCurrency;
-    private String BaseCurrency;
-    private String MarketCurrencyLong;
-    private String BaseCurrencyLong;
-    private Double MinTradeSize;
-    private String MarketName;
-    private Boolean IsActive;
-    private String Created;
+    private String marketCurrency;
+    private String baseCurrency;
+    private String marketCurrencyLong;
+    private String baseCurrencyLong;
+    private Double minTradeSize;
+    private String marketName;
+    private Boolean isActive;
+    private String created;
 
     public String getMarketCurrency() {
-        return MarketCurrency;
+        return marketCurrency;
     }
 
     public void setMarketCurrency(String marketCurrency) {
-        MarketCurrency = marketCurrency;
+        this.marketCurrency = marketCurrency;
     }
 
     public String getBaseCurrency() {
-        return BaseCurrency;
+        return baseCurrency;
     }
 
     public void setBaseCurrency(String baseCurrency) {
-        BaseCurrency = baseCurrency;
+        this.baseCurrency = baseCurrency;
     }
 
     public String getMarketCurrencyLong() {
-        return MarketCurrencyLong;
+        return marketCurrencyLong;
     }
 
     public void setMarketCurrencyLong(String marketCurrencyLong) {
-        MarketCurrencyLong = marketCurrencyLong;
+        this.marketCurrencyLong = marketCurrencyLong;
     }
 
     public String getBaseCurrencyLong() {
-        return BaseCurrencyLong;
+        return baseCurrencyLong;
     }
 
     public void setBaseCurrencyLong(String baseCurrencyLong) {
-        BaseCurrencyLong = baseCurrencyLong;
+        this.baseCurrencyLong = baseCurrencyLong;
     }
 
     public Double getMinTradeSize() {
-        return MinTradeSize;
+        return minTradeSize;
     }
 
     public void setMinTradeSize(Double minTradeSize) {
-        MinTradeSize = minTradeSize;
+        this.minTradeSize = minTradeSize;
     }
 
     public String getMarketName() {
-        return MarketName;
+        return marketName;
     }
 
     public void setMarketName(String marketName) {
-        MarketName = marketName;
+        this.marketName = marketName;
     }
 
     public Boolean getActive() {
-        return IsActive;
+        return isActive;
     }
 
     public void setActive(Boolean active) {
-        IsActive = active;
+        isActive = active;
     }
 
     public String getCreated() {
-        return Created;
+        return created;
     }
 
     public void setCreated(String created) {
-        Created = created;
+        this.created = created;
     }
 }
